@@ -1,7 +1,13 @@
-import {cart, removeFromCart, updateCartQuantityAtCheckout} from '../data/cart.js';
+import {cart, removeFromCart, calculateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';;
 
+function updateCartQuantity() {
+  const cartQuantity = calculateCartQuantity();
+
+  document.querySelector('.js-return-to-home-link')
+    .innerHTML = `${cartQuantity} items`;
+}
 
 let cartSummaryHTML = '';
 
@@ -96,7 +102,7 @@ cart.forEach((cartItem) => {
   `;
 });
 
-updateCartQuantityAtCheckout();
+updateCartQuantity();
 
 document.querySelector('.js-order-summary')
   .innerHTML = cartSummaryHTML;
@@ -111,6 +117,6 @@ document.querySelectorAll('.js-delete-link')
 
       container.remove();
       
-      updateCartQuantityAtCheckout();
+      updateCartQuantity();
     });
   })
