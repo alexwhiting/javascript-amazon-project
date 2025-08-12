@@ -65,4 +65,10 @@ export function updateQuantity(productId, newQuantity) {
   });
 
   saveToStorage();
+
+  document.querySelector('.js-quantity-label')
+    .innerHTML = newQuantity;
+
+  document.querySelector('.js-return-to-home-link')
+    .innerHTML = `${newQuantity} items`;
 }
