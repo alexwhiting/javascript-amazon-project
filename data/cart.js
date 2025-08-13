@@ -75,3 +75,17 @@ export function updateQuantity(productId, newQuantity) {
   document.querySelector('.js-return-to-home-link')
     .innerHTML = `${newQuantity} items`;
 }
+
+export function updateDeliveryOption(productId, deliveryOptionId) {
+  let matchingItem;
+
+  cart.forEach((cartItem) => {
+    if (productId === cartItem.productId) {
+      matchingItem = cartItem;
+    };
+  });
+
+  matchingItem.deliveryOptionId = deliveryOptionId;
+
+  saveToStorage();
+}
