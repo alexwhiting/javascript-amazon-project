@@ -71,9 +71,6 @@ export function updateQuantity(productId, newQuantity) {
 
   document.querySelector('.js-quantity-label')
     .innerHTML = newQuantity;
-
-  document.querySelector('.js-return-to-home-link')
-    .innerHTML = `${newQuantity} items`;
 }
 
 export function updateDeliveryOption(productId, deliveryOptionId) {
